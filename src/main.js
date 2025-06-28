@@ -1,3 +1,4 @@
+import { scaleFactor } from "./constant.js";
 import { k } from "./kaboomCtx.js"
 
 k.loadSprite("spritesheet", "./spritesheet.png", {
@@ -13,6 +14,59 @@ k.loadSprite("spritesheet", "./spritesheet.png", {
   },
 });
 
+k.loadSprite("map", "./map.png");
+
+k.setBackground(k.Color.fromHex("#311047"));
+
+k.scene("main", async () => {
+  const mapData = await (await fetch("./map.json")).json();
+  const layers = mapData.layers;
+  const map = k.make([
+    k.sprite("map"),
+    k.pos(0),
+    k.scale(scaleFactor)
+  ])
+  const player = k.make([
+    k.sprite("spritesheet",
+    { anim: "idle-down" }),
+    k.area({
+      shape: new k.Rect(k.vec2(0, 3), 10, 10),
+    }),
+    k.body(),
+    k.anchor("center"),
+    k.pos(),
+    k.scale(scaleFactor),
+    {
+      speed: 250,
+      direction: "down",
+      isInDialogue: false,
+    },
+    "player",
+  ]);
+
+  for (const layer of layers) {
+    if (layer.name === "border") {
+      for (const boundary of layer.objects) {
+        map.add([
+          k.area({
+            shape: new k.Rect(k.vec2(0), boundary.width, boundary.height),
+          }),
+          k.body({ isStatic: true }),
+          k.pos(boundary.x, boundary.y),
+          boundary.name,
+        ]);
+        if (boundary.name) {
+          player.onCollide(boundary.name, () => {
+            player.isInDialogue = true;
+            // to do
+          });
+        }
+      }
+    }
+  }
+});
+
+ k.go("main")
 // import './style.css'
 // import javascriptLogo from './javascript.svg'
 // import viteLogo from '/vite.svg'
