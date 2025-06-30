@@ -9,7 +9,7 @@ export const dialogueData = {
   tv: `... Get to the ChoOOPPAA... ... I'll be back...`,
   pc: `Log in... Password: 123456 \n A place to rest, and play my games.\n
     I love action RPG.
-    DARK SOULS 🛡️🗡🔥💀𒉭: "PAISE THE SUN!🌞 " `,
+    DARK SOULS 🛡️🗡🔥💀𒉭: "PRAISE THE SUN!🌞 " `,
   exit: `To Exit just close this tab`,
   shelf: `Half utility, half personality. Tech gadgets I don't use enough, collectibles I refuse to throw away, and maybe a plant I'm trying not to kill. It's a snapshot of the stuff that matters (or once did)`,
   alexa: `Alexa! play my favorite <a href="https://open.spotify.com/track/2BHj31ufdEqVK5CkYDp9mA?si=315d48c2d69d4023" target="_blank">song</a>`,
