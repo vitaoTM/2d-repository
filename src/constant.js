@@ -3,7 +3,7 @@ export const scaleFactor = 4;
 export const dialogueData = {
   "pc-master": `This is my PC. I work mostly in Ruby on Rails these days.
     I've made a few projects with it. I also like Python and data science. Anyway regardless of the language, I just like programming.
-    Here is my <a href="https://github.com/vitaoTM target="_blank">Github</a>!`,
+    Here is my <a href="https://github.com/vitaoTM" target="_blank">Github</a>!`,
   tv2: `I've been watching One Piece...
       "- I'll be the pirate king!"`,
   tv: `... Get to the ChoOOPPAA... ... I'll be back...`,
